@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pyqueue
+spec:
+  parallelism: 2
+  template:
+    metadata:
+      name: pyqueue
+    spec:
+      containers:
+      - name: c
+        image: obinlinacre/docker_k8s_test_del:pyqueue
+      restartPolicy: OnFailure

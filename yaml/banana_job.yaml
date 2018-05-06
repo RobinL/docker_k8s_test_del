@@ -11,4 +11,5 @@ spec:
       containers:
       - name: c
         image: robinlinacre/docker_k8s_test_del:pyqueue
+        imagePullPolicy: Always
       restartPolicy: OnFailure

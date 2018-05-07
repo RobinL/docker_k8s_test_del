@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ubuntu_exec
+  name: ubuntu-apps
   labels:
-    app: ubuntu_exec
+    app: ubuntu-apps
 spec:
   containers:
   - image: robinlinacre/docker_k8s_test_del:ubuntu
-    name: ubuntu_exec
+    name: ubuntu-apps

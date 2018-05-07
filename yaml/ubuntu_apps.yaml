@@ -5,6 +5,7 @@ metadata:
   labels:
     app: ubuntu-apps
 spec:
+  dnsPolicy: Default
   containers:
   - image: robinlinacre/docker_k8s_test_del:ubuntu_utils
     name: ubuntu-apps

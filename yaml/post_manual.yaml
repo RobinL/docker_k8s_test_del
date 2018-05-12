@@ -10,7 +10,11 @@ spec:
     env:
     - name: "GOOGLE_APPLICATION_CREDENTIAL"
       value: "/var/run/secrets/storage_json/creds.json"
+    volumeMounts:
+    - mountPath: /var/run/secrets/storage_json
+      name: volstorageconfigmap
+      readOnly: true
   volumes:
-  - name: "service-account"
+  - name: "volstorageconfigmap"
     secret:
-      secretName: storageconfigmap
+      secretName: "storageconfigmap"

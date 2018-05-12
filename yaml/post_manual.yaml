@@ -9,4 +9,8 @@ spec:
     imagePullPolicy: Always
     env:
     - name: "GOOGLE_APPLICATION_CREDENTIAL"
-      value: "creds.json"
+      value: "/var/run/secrets/storage_json/creds.json"
+  volumes:
+  - name: "service-account"
+    secret:
+      secretName: storageconfigmap

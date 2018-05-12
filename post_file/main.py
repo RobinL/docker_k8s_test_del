@@ -1,9 +1,11 @@
 from gcloud import storage
 import datetime
+import os
+
 
 import gcloud
-client = storage.Client()
 
+client = storage.Client.from_service_account_json(os.environ["GOOGLE_APPLICATION_CREDENTIAL"])
 time = datetime.datetime.now().isoformat()
 
 print(f"creating file {time}")

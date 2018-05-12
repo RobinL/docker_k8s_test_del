@@ -6,6 +6,7 @@ spec:
   containers:
   - image: robinlinacre/docker_k8s_test_del:post_file
     name: post-manual
+    imagePullPolicy: Always
     env:
     - name: "GOOGLE_APPLICATION_CREDENTIAL"
       value: "creds.json"

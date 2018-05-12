@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: post-cronjob-each-minute
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            team: dataengineering
+            category: data-scraper
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - image: robinlinacre/docker_k8s_test_del:post_file
+              name: post-manual
+              imagePullPolicy: Always
+              env:
+              - name: "GOOGLE_APPLICATION_CREDENTIAL"
+                value: "/var/run/secrets/storage_json/creds.json"
+              volumeMounts:
+              - mountPath: /var/run/secrets/storage_json
+                name: volstorageconfigmap
+                readOnly: true
+          volumes:
+          - name: "volstorageconfigmap"
+            secret:
+              secretName: "storageconfigmap"

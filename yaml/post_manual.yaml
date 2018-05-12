@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: post-manual
+spec:
+  containers:
+  - image: robinlinacre/docker_k8s_test_del:post_file
+    name: post-manual
+    env:
+    - name: "GOOGLE_APPLICATION_CREDENTIAL"
+      value: "creds.json"

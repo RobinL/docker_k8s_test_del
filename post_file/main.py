@@ -2,7 +2,7 @@ from gcloud import storage
 import datetime
 
 import gcloud
-client = storage.Client())
+client = storage.Client()
 
 time = datetime.datetime.now().isoformat()
 
